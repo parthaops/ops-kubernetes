@@ -1,14 +1,14 @@
 ***
 
 ````markdown
-# PARTHAOPS
+### PARTHAOPS
 
 PARTHAOPS is a hands-on **Kubernetes workspace repository** designed to store, manage, and experiment with real‑world **Kubernetes YAML manifests**.  
 This repository acts as a centralized lab for building, testing, and maintaining Kubernetes components from scratch using best practices.
 
 ---
 
-## 📌 Purpose of This Repository
+### 📌 Purpose of This Repository
 - Act as a **workspace for Kubernetes (K8s) YAML files**
 - Maintain reusable and modular configurations
 - Practice production‑ready infrastructure patterns
@@ -16,10 +16,10 @@ This repository acts as a centralized lab for building, testing, and maintaining
 
 ---
 
-## 📂 Repository Structure
+### 📂 Repository Structure
 The repository covers most commonly used Kubernetes resources, including:
 
-- **Namespaces**
+- ***Namespaces***
 - **Workloads**
   - Deployments
   - StatefulSets
