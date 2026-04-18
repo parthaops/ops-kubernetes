@@ -1,12 +1,3 @@
-Perfect 👍  
-Below is an **enhanced, professional, and DevOps‑grade README.md**, written **as a README file writer**, keeping your original content intact and **adding a complete, popular `kubectl` command section** that is:
-
-*   ✅ Practical (used daily by DevOps/SREs)
-*   ✅ Well‑organized
-*   ✅ Easy to skim
-*   ✅ Portfolio & interview ready
-
-You can **copy‑paste this directly**.
 
 ***
 
