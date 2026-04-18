@@ -1,83 +1,94 @@
+
+# 🚀 PARTHAOPS
+
+**Ops-Kubernetes** is a hands-on **Kubernetes workspace repository** created to practice, manage, and experiment with **real‑world Kubernetes YAML manifests**.  
+It acts as a centralized lab for learning Kubernetes concepts and implementing **production‑oriented DevOps & SRE patterns**.
+
 ***
 
-````markdown
-### PARTHAOPS
+## 📌 Purpose of This Repository
 
-PARTHAOPS is a hands-on **Kubernetes workspace repository** designed to store, manage, and experiment with real‑world **Kubernetes YAML manifests**.  
-This repository acts as a centralized lab for building, testing, and maintaining Kubernetes components from scratch using best practices.
+*   Serve as a **workspace for Kubernetes (K8s) YAML manifests**
+*   Maintain **reusable, modular configurations**
+*   Practice **real‑world DevOps & SRE workflows**
+*   Build a strong **Kubernetes / DevOps portfolio**
 
----
+***
 
-### 📌 Purpose of This Repository
-- Act as a **workspace for Kubernetes (K8s) YAML files**
-- Maintain reusable and modular configurations
-- Practice production‑ready infrastructure patterns
-- Serve as a reference for real‑world DevOps and SRE use cases
+## 📂 Repository Scope
 
----
+This repository includes commonly used Kubernetes components:
 
-### 📂 Repository Structure
-The repository covers most commonly used Kubernetes resources, including:
+### 🔹 Namespaces
 
-- ***Namespaces***
-- **Workloads**
-  - Deployments
-  - StatefulSets
-  - DaemonSets
-  - Jobs & CronJobs
-- **Services**
-  - ClusterIP
-  - NodePort
-  - LoadBalancer
-- **Config & Secrets**
-  - ConfigMaps
-  - Secrets
-- **Networking**
-  - Ingress
-  - Network Policies
-- **Storage**
-  - PersistentVolumes (PV)
-  - PersistentVolumeClaims (PVC)
-  - StorageClasses
-- **Observability & Ops**
-  - Health probes
-  - Resource requests & limits
-  - Pod disruption basics
+### 🔹 Workloads
 
----
+*   Deployments
+*   StatefulSets
+*   DaemonSets
+*   Jobs & CronJobs
 
-## 🛠️ Examples Included
-This repository provides **example YAML manifests** such as:
+### 🔹 Services
 
-- Namespace creation
-- Sample Deployment with replicas
-- DaemonSet for node‑level agents
-- Stateful workloads with persistent storage
-- Service and Ingress mapping
-- Environment‑based configurations using ConfigMaps and Secrets
+*   ClusterIP
+*   NodePort
+*   LoadBalancer
 
-All examples are written to be:
-- Easy to read
-- Modular
-- Reusable
-- Close to production standards
+### 🔹 Configuration
 
----
+*   ConfigMaps
+*   Secrets
 
-## ⚙️ Popular & Essential kubectl Commands (Complete Cheat Sheet)
+### 🔹 Networking
 
-### 🔹 Cluster & Context Management
+*   Ingress
+*   Network Policies
+
+### 🔹 Storage
+
+*   PersistentVolumes (PV)
+*   PersistentVolumeClaims (PVC)
+*   StorageClasses
+
+### 🔹 Operations
+
+*   Health checks
+*   Resource requests & limits
+*   Autoscaling basics
+
+***
+
+## 🛠️ What You’ll Find Here
+
+*   Namespace examples
+*   Deployment & DaemonSet manifests
+*   Stateful applications with persistent storage
+*   Service & Ingress routing
+*   Configuration management using ConfigMaps & Secrets
+*   Autoscaling and operational best practices
+
+✅ All manifests are:
+
+*   Simple & readable
+*   Modular & reusable
+*   Written close to **production standards**
+
+***
+
+## ⚙️ kubectl Command Cheat Sheet
+
+### 🔹 Cluster & Context
+
 ```bash
 kubectl version
 kubectl cluster-info
 kubectl api-resources
-kubectl api-versions
 kubectl config get-contexts
 kubectl config current-context
 kubectl config use-context <context>
-````
+```
 
-### 🔹 Namespace Operations
+### 🔹 Namespace Management
 
 ```bash
 kubectl get ns
@@ -87,7 +98,7 @@ kubectl describe ns <namespace>
 kubectl config set-context --current --namespace=<namespace>
 ```
 
-### 🔹 Apply, Update & Delete Manifests
+### 🔹 Apply & Delete Manifests
 
 ```bash
 kubectl apply -f file.yaml
@@ -97,15 +108,7 @@ kubectl delete -f directory/
 kubectl diff -f file.yaml
 ```
 
-### 🔹 Resource Inspection
-
-```bash
-kubectl get all
-kubectl get all -n <namespace>
-kubectl describe <resource> <name>
-```
-
-### 🔹 Pods (Debugging & Troubleshooting)
+### 🔹 Pods (Debugging)
 
 ```bash
 kubectl get pods
@@ -117,32 +120,25 @@ kubectl exec -it <pod-name> -- /bin/sh
 kubectl delete pod <pod-name>
 ```
 
-### 🔹 Workloads (Deployments, DaemonSets, Jobs)
+### 🔹 Workloads
 
 ```bash
 kubectl get deploy
 kubectl get ds
+kubectl get sts
 kubectl get jobs
-kubectl describe deploy <deployment-name>
-kubectl rollout status deploy/<deployment-name>
-kubectl rollout history deploy/<deployment-name>
-kubectl rollout restart deploy/<deployment-name>
-kubectl scale deploy <deployment-name> --replicas=3
+kubectl describe deploy <name>
+kubectl rollout status deploy/<name>
+kubectl rollout restart deploy/<name>
+kubectl scale deploy <name> --replicas=3
 ```
 
-### 🔹 Services
+### 🔹 Services & Networking
 
 ```bash
 kubectl get svc
 kubectl describe svc <service-name>
-kubectl expose deploy <deployment-name> --type=NodePort --port=80
-```
-
-### 🔹 Ingress & Networking
-
-```bash
 kubectl get ingress
-kubectl get ingress -A
 kubectl describe ingress <ingress-name>
 kubectl get networkpolicy
 ```
@@ -152,19 +148,10 @@ kubectl get networkpolicy
 ```bash
 kubectl get cm
 kubectl get secret
-kubectl describe cm <configmap-name>
-kubectl describe secret <secret-name>
+kubectl describe cm <name>
+kubectl describe secret <name>
 kubectl create configmap app-config --from-literal=key=value
 kubectl create secret generic app-secret --from-literal=password=secret
-```
-
-### 🔹 StatefulSets
-
-```bash
-kubectl get sts
-kubectl describe sts <statefulset-name>
-kubectl rollout status sts/<statefulset-name>
-kubectl delete pod <pod-name>   # Validate persistence
 ```
 
 ### 🔹 Storage
@@ -172,26 +159,25 @@ kubectl delete pod <pod-name>   # Validate persistence
 ```bash
 kubectl get pv
 kubectl get pvc
-kubectl describe pvc <pvc-name>
+kubectl describe pvc <name>
 kubectl get storageclass
 ```
 
-### 🔹 Autoscaling (HPA)
+### 🔹 Autoscaling
 
 ```bash
 kubectl get hpa
-kubectl describe hpa <hpa-name>
-kubectl autoscale deploy <deployment-name> --min=1 --max=5 --cpu-percent=70
+kubectl describe hpa <name>
+kubectl autoscale deploy <name> --min=1 --max=5 --cpu-percent=70
 ```
 
-### 🔹 Events, Metrics & Explain
+### 🔹 Monitoring & Troubleshooting
 
 ```bash
-kubectl get events --sort-by=.metadata.creationTimestamp
 kubectl top nodes
 kubectl top pods
+kubectl get events --sort-by=.metadata.creationTimestamp
 kubectl explain <resource>
-kubectl explain deploy.spec.template.spec
 ```
 
 ***
@@ -204,8 +190,9 @@ cd ops-kubernetes
 kubectl apply -f .
 ```
 
-> ⚠️ This repository is intended for **learning, practice, and lab environments**.  
-> Always review manifests before production use.
+> ⚠️ **Note:**  
+> This repository is intended for **learning and lab environments**.  
+> Always review manifests before using them in production.
 
 ***
 
@@ -217,7 +204,7 @@ Signature: **parthaops**
 
 ***
 
-## 📜 Copyright
+## 📜 License & Copyright
 
 © 2026 **parthaops**  
 All rights reserved.
